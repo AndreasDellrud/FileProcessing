@@ -13,7 +13,7 @@ namespace FileProcessing
         {
             if (args.Length < 3)
             {
-                Console.WriteLine($"Program only takes 3 arguments");
+                Console.WriteLine($"Program only takes 3 arguments. Filename, output directory, Reference date.");
                 Console.ReadKey();
                 return;
             }
@@ -70,7 +70,7 @@ namespace FileProcessing
 
                 foreach (var transfer in bank.Transfers)
                 {
-                    File.AppendAllText(outputFileName, $"{transfer.Account};{transfer.Amount};{transfer.Date.ToShortDateString()};{transfer.Type}" + Environment.NewLine);
+                    File.AppendAllText(outputFileName, $"{transfer.Account};{transfer.Amount};{transfer.Date.ToShortDateString()};{transfer.Type.ToString().ToUpper()}" + Environment.NewLine);
                 }
             }
         }

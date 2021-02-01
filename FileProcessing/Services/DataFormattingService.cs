@@ -10,9 +10,12 @@ namespace FileProcessing.Services
         {
             var inputData = new List<InputData>();
 
-            for (int i = 0; i < inputDataLines.Length; i++)
+            foreach (var line in inputDataLines)
             {
-                var values = inputDataLines[i].Split(';');
+                var values = line.Split(';');
+
+                if (values.Length != 4)
+                    continue;
 
                 if (values[0] == "Konto")
                     continue;
@@ -30,15 +33,15 @@ namespace FileProcessing.Services
             var referenceDate = DateTime.Parse(referenceTime).Date;
             if (dateTime.Date < referenceDate)
             {
-                return TransferType.OLD;
+                return TransferType.Old;
             }
             else if (dateTime.Date == referenceDate)
             {
-                return TransferType.ACTIVE;
+                return TransferType.Active;
             }
             else
             {
-                return TransferType.FUTURE;
+                return TransferType.Future;
             }
         }
     }
