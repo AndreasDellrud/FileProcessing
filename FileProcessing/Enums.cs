@@ -2,8 +2,8 @@
 {
     public enum TransferType
     {
-        OLD,
-        ACTIVE,
-        FUTURE
+        Old,
+        Active,
+        Future
     }
 }
