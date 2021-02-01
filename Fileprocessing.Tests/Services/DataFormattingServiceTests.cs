@@ -27,7 +27,7 @@ namespace FileProcessing.Services.Tests
             var referenceDate = DateTime.Now.AddDays(-5).ToString("yyyy-MM-dd");
             var date = DateTime.Now;
             var type = dataFormattingService.GetTransferType(date, referenceDate);
-            Assert.AreEqual(TransferType.OLD, type);
+            Assert.AreEqual(TransferType.Old, type);
         }
         [Test()]
         public void GetTransferTypeShouldReturnActiveForCurrentDate()
@@ -35,7 +35,7 @@ namespace FileProcessing.Services.Tests
             var referenceDate = DateTime.Now.ToString("yyyy-MM-dd");
             var date = DateTime.Now;
             var type = dataFormattingService.GetTransferType(date, referenceDate);
-            Assert.AreEqual(TransferType.ACTIVE, type);
+            Assert.AreEqual(TransferType.Active, type);
         }
         [Test()]
         public void GetTransferTypeShouldReturnFutureForFutureDateDate()
@@ -43,7 +43,7 @@ namespace FileProcessing.Services.Tests
             var referenceDate = DateTime.Now.AddDays(5).ToString("yyyy-MM-dd");
             var date = DateTime.Now;
             var type = dataFormattingService.GetTransferType(date, referenceDate);
-            Assert.AreEqual(TransferType.FUTURE, type);
+            Assert.AreEqual(TransferType.Future, type);
         }
     }
 }
